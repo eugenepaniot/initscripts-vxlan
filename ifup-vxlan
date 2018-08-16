@@ -1,0 +1,25 @@
+#!/bin/bash
+
+. /etc/init.d/functions
+
+cd /etc/sysconfig/network-scripts
+. ./network-functions
+
+[ -f ../network ] && . ../network
+
+CONFIG=${1}
+
+need_config ${CONFIG}
+
+source_config
+
+exec /etc/sysconfig/network-scripts/ifup ${PHYS_DEV}
+
+ip link add ${DEVICE} type vxlan \
+    id ${VNI} \
+    dstport ${DSTPORT:-4789} \
+    local ${LOCAL_ADDR} \
+    ttl ${ttl:-255} \
+    dev ${PHYS_DEV} ${OPTIONS}
+
+exec /etc/sysconfig/network-scripts/ifup-eth ${DEVICE}

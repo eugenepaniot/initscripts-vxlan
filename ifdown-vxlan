@@ -14,5 +14,5 @@ source_config
 /sbin/ip link set dev "$DEVICE" down
 /sbin/ip link del "$DEVICE"
 
-exec /etc/sysconfig/network-scripts/ifdown-eth "$CONFIG"
-exec /etc/sysconfig/network-scripts/ifdown-post "$CONFIG"
+/etc/sysconfig/network-scripts/ifdown-eth "$CONFIG"
+/etc/sysconfig/network-scripts/ifdown-post "$CONFIG"

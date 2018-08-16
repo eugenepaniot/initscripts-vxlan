@@ -13,7 +13,7 @@ need_config ${CONFIG}
 
 source_config
 
-exec /etc/sysconfig/network-scripts/ifup ${PHYS_DEV}
+/etc/sysconfig/network-scripts/ifup ${PHYS_DEV}
 
 ip link add ${DEVICE} type vxlan \
     id ${VNI} \
@@ -22,4 +22,4 @@ ip link add ${DEVICE} type vxlan \
     ttl ${ttl:-255} \
     dev ${PHYS_DEV} ${OPTIONS}
 
-exec /etc/sysconfig/network-scripts/ifup-eth ${DEVICE}
+/etc/sysconfig/network-scripts/ifup-eth ${DEVICE}

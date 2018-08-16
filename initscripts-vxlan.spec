@@ -1,6 +1,6 @@
 Name:		initscripts-vxlan
 Version:	0.1
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	vxlan ifup/down scripts
 Packager:       Eugene Paniot <e.paniot@gmail.com>
 Group:		System Environment/Base
